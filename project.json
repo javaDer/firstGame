@@ -1,0 +1,25 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/app.js",
+        "src/SysMenuLayer.js",
+        "src/ButtonSprite.js",
+        "src/CommonUtil.js",
+        "src/GameState.js",
+        "src/GamePlayLayer.js",
+        "src/PersonSprite.js",
+        "src/ParticleLayer.js"
+    ]
+}
