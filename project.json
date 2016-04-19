@@ -13,13 +13,14 @@
 
     "jsList" : [
         "src/resource.js",
-        "src/app.js",
         "src/SysMenuLayer.js",
         "src/ButtonSprite.js",
         "src/CommonUtil.js",
         "src/GameState.js",
         "src/GamePlayLayer.js",
         "src/PersonSprite.js",
-        "src/ParticleLayer.js"
+        "src/ParticleLayer.js",
+        "src/AnimationFrame.js"
+
     ]
 }

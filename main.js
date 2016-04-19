@@ -66,13 +66,13 @@ cc.game.onStart = function(){
 
     cc.view.enableAutoFullScreen(false);
     cc.view.setDesignResolutionSize(640, 1136, cc.ResolutionPolicy.FIXED_WIDTH);
-    //cc.director.setContentScaleFactor(640)
     window.winSize = cc.director.getWinSize();
 
     cc.view.resizeWithBrowserSize(true);
     //load resources
     cc.LoaderScene.preload(g_resources, function () {
         cc.director.runScene(new SysMenuScene());
+        //cc.director.runScene(new AnimationFrameScene());
     }, this);
 };
 cc.game.run();

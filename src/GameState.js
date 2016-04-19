@@ -27,7 +27,7 @@ GS.setLocalStorage=function(key,value){
 	ls.setItem(key, value);
 };
 
-GS.sound=0;
+GS.sound=1;
 /**存储的model对象*/
 GS.LocalStorageModel={
 	scores:null,//记录

@@ -2,9 +2,14 @@ var res = {
     HelloWorld_png : "res/HelloWorld.png",
     play:"res/play.png",
     bg:"res/bg.png",
-    back:"res/back.png",
-    person:"res/person.png",
-    blue:"res/blue.png",
+    life:"res/life.png",
+
+    test_plist:"res/test.plist",
+    test_png:"res/test.png",
+
+    person_plist:"res/person.plist",
+    person_png:"res/person_1.png",
+
 
     particle_plist:"res/particle.plist",
     particle1_plist:"res/particle_1.plist",

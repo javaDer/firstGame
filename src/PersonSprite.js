@@ -2,7 +2,7 @@ var PersonSprite = cc.Sprite.extend({
     _rect:null,
     _touchX:null,
     ctor:function(){
-        this._super(res.person);
+        this._super('#person.png');
         this._rect = cc.rect(0,0,this.getContentSize().width,this.getContentSize().height);
 
         cc.eventManager.addListener({
@@ -19,8 +19,9 @@ var PersonSprite = cc.Sprite.extend({
         var person= new cc.Sprite(res.person);
         person.x = this.width / 2;
         person.y = this.height / 2;
-
         this.addChild(person);
+
+        cc.spriteFrameCache.addSpriteFrames(res.person_plist);
     },
 
     getRect:function () {
@@ -40,36 +41,53 @@ var PersonSprite = cc.Sprite.extend({
         if (!target.isTouchInRect(touch)){
             return false
         }
+        //target.animationFrames();
         return true;
+
     },
 
     onTouchMoved : function (touch, event) {
         var target = event.getCurrentTarget();
-        target.setPositionX(touch.getLocation().x);
-        //var x = target.x;
-        //console.log(x);
-        //if(x < window.winSize.width-target._rect.width/2+20 && x > target._rect.width/2-20){
-        //
-        //}
 
-        //target.setPosition(touch.getLocation());
+        var x = touch.getLocation().x;
+        if(x < 0){
+            x = 0;
+        }
+        if( x > winSize.width){
+            x = winSize.width;
+        }
 
-
-        //
-        //console.log(target.x);
-        //console.log(target._rect);
-
-
+        target.setPositionX(x);
 
     },
 
     onTouchEnded : function (touch, event) {
         var target = event.getCurrentTarget();
         //target.unschedule(target.personMove)
+        //target.stopAllActions();
     },
 
     onTouchCancelled : function (touch, event) {
         var target = event.getCurrentTarget();
+
+    },
+    /**
+     *
+     */
+    animationFrames:function(){
+        this.stopAllActions();
+        var animation = new cc.Animation();
+        for (var i = 1; i <= 10; i++) {
+            var frameName = "img_" + i + ".png";
+            cc.log("frameName = " + frameName)
+            var spriteFrame = cc.spriteFrameCache.getSpriteFrame(frameName);
+            animation.addSpriteFrame(spriteFrame);
+        }
+
+        animation.setDelayPerUnit(0.08);           //设置两个帧播放时间
+        animation.setRestoreOriginalFrame(true);    //动画执行后还原初始状态
+
+        this.runAction(cc.animate(animation).repeatForever());
 
     },
     personMove:function(){
